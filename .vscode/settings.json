@@ -7,5 +7,40 @@
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "build": true,
+    ".vscode": true,
+    "node_modules": true,
+    "out": true,
+    "resources": true,
+    "electron-builder.yml": true,
+    "package-lock.json": true,
+    "pnpm-lock.yaml": true,
+    "postcss.config.js": true,
+    "README.md": true,
+    "tsconfig.json": true,
+    "tsconfig.node.json": true,
+    "tsconfig.web.json": true
+  },
+  "hide-files.files": [
+    "build",
+    ".vscode",
+    "node_modules",
+    "out",
+    "resources",
+    "electron-builder.yml",
+    "package-lock.json",
+    "pnpm-lock.yaml",
+    "postcss.config.js",
+    "README.md",
+    "tsconfig.json",
+    "tsconfig.node.json",
+    "tsconfig.web.json"
+  ]
 }

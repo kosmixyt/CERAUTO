@@ -1,20 +1,25 @@
-import { resolve } from 'path'
-import { defineConfig, externalizeDepsPlugin, bytecodePlugin } from 'electron-vite'
-import vue from '@vitejs/plugin-vue'
+import { resolve } from "path";
+import {
+  defineConfig,
+  externalizeDepsPlugin,
+  bytecodePlugin,
+} from "electron-vite";
+import tailwindcss from "@tailwindcss/vite";
+import vue from "@vitejs/plugin-vue";
 
 export default defineConfig({
   main: {
-    plugins: [externalizeDepsPlugin(), bytecodePlugin()]
+    plugins: [externalizeDepsPlugin(), bytecodePlugin(), tailwindcss()],
   },
   preload: {
-    plugins: [externalizeDepsPlugin(), bytecodePlugin()]
+    plugins: [externalizeDepsPlugin(), bytecodePlugin()],
   },
   renderer: {
     resolve: {
       alias: {
-        '@renderer': resolve('src/renderer/src')
-      }
+        "@renderer": resolve("src/renderer/src"),
+      },
     },
-    plugins: [vue()]
-  }
-})
+    plugins: [vue(), tailwindcss()],
+  },
+});
