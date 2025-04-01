@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import Settings from "@renderer/views/Settings.vue";
 import CreateView from "../views/CreateView.vue";
+import DocumentEditorView from "../views/DocumentEditorView.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: "/settings",
       name: "settings",
       component: () => Settings,
+    },
+    {
+      path: "/document-editor",
+      name: "document-editor",
+      component: DocumentEditorView,
     },
   ],
 });

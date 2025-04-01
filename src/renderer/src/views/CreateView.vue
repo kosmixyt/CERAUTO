@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const isLoading = ref(false);
 const htmlContent = ref('');
 const selectedFileName = ref<string | null>(null);
@@ -33,6 +35,12 @@ const handleFileUpload = (event: Event) => {
 const resetFileSelection = () => {
     selectedFileName.value = null;
 };
+
+const validateAndContinue = () => {
+    // Here you can add any validation logic if needed
+    // Navigate to the document editor view
+    router.push('/document-editor');
+};
 </script>
 
 <template>
@@ -63,7 +71,7 @@ const resetFileSelection = () => {
                 <div class="file-upload mt-4 mb-2">
                     <label for="file-upload" class="block text-green-200 mb-2">Veuillez uploader un fichier texte (doc
                         ou docx) :</label>
-                    <input v-if="!selectedFileName" id="file-upload" type="file" accept=".odt,.doc,.docx,.txt"
+                    <input v-if="!selectedFileName" id="file-upload" type="file" accept=".pdf,.odt,.doc,.docx,.txt"
                         @change="handleFileUpload"
                         class="block w-full text-green-900 bg-green-100 border border-green-700 rounded-lg p-2" />
 
@@ -75,6 +83,14 @@ const resetFileSelection = () => {
                             Changer de fichier
                         </button>
                     </div>
+                </div>
+
+                <!-- Validation Button - Only appears when a file is selected -->
+                <div v-if="selectedFileName" class="validation-section mt-6 flex justify-center">
+                    <button @click="validateAndContinue"
+                        class="px-6 py-3 bg-green-600 text-white font-medium rounded hover:bg-green-500 transition-colors w-full md:w-auto">
+                        Valider et continuer
+                    </button>
                 </div>
             </div>
         </div>
@@ -170,7 +186,8 @@ const resetFileSelection = () => {
     overflow-y: auto;
     max-height: 65vh;
     scrollbar-width: thin;
-    scrollbar-color: #3a895a #152118; /* Mise à jour des couleurs ici aussi */
+    scrollbar-color: #3a895a #152118;
+    /* Mise à jour des couleurs ici aussi */
 }
 
 .html-content {
@@ -216,16 +233,19 @@ const resetFileSelection = () => {
 }
 
 ::-webkit-scrollbar-track {
-    background: #152118; /* Couleur plus foncée pour le track */
+    background: #152118;
+    /* Couleur plus foncée pour le track */
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #3a895a; /* Couleur plus vive pour la barre */
+    background: #3a895a;
+    /* Couleur plus vive pour la barre */
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #4ca36c; /* Couleur plus claire au survol */
+    background: #4ca36c;
+    /* Couleur plus claire au survol */
 }
 
 ::-webkit-scrollbar {
@@ -243,5 +263,11 @@ const resetFileSelection = () => {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #3a5c49;
+}
+
+.validation-section button {
+    min-width: 200px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 </style>

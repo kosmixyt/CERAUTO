@@ -21,6 +21,19 @@ function createWindow(): void {
     },
   });
 
+  // Set security headers for all responses
+  mainWindow.webContents.session.webRequest.onHeadersReceived(
+    (details, callback) => {
+      callback({
+        responseHeaders: {
+          ...details.responseHeaders,
+          "Cross-Origin-Embedder-Policy": ["require-corp"],
+          "Cross-Origin-Opener-Policy": ["same-origin"],
+        },
+      });
+    }
+  );
+
   mainWindow.on("ready-to-show", () => {
     mainWindow.show();
   });
