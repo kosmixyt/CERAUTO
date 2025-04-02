@@ -28,7 +28,10 @@
     "@types/vue-router": "^2.0.0",
     "@webcontainer/api": "^1.5.3",
     "awesome-unoconv": "^1.0.1",
+    "jspdf": "^3.0.1",
     "monaco-editor": "^0.52.2",
+    "pdf-parse": "^1.1.1",
+    "tesseract.js": "^4.1.1",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {

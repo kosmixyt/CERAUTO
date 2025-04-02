@@ -1,8 +1,14 @@
-import { app, shell, BrowserWindow, ipcMain } from "electron";
-import { join } from "path";
+import { app, shell, BrowserWindow, ipcMain, net } from "electron";
 import { electronApp, optimizer, is } from "@electron-toolkit/utils";
+import { join } from "path";
 import icon from "../../resources/icon.png?asset";
 import RequestHtmlSujet from "./sujet";
+import * as fs from 'fs';
+import * as path from 'path';
+import * as os from 'os';
+
+// Import pdf-parse pour extraire le texte des PDF
+import pdfParse from 'pdf-parse';
 
 function createWindow(): void {
   // Create the browser window.
@@ -103,6 +109,28 @@ app.whenReady().then(() => {
   // IPC test
   ipcMain.on("ping", () => console.log("pong"));
 
+  // Gestionnaire pour extraire le texte d'un PDF
+  ipcMain.handle('extract-pdf-text', async (event, fileBuffer) => {
+    try {
+      // Convertir l'ArrayBuffer en Buffer Node.js
+      const buffer = Buffer.from(fileBuffer);
+      
+      // Utiliser pdf-parse pour extraire le texte
+      const pdfData = await pdfParse(buffer);
+      
+      return {
+        success: true,
+        text: pdfData.text
+      };
+    } catch (error) {
+      console.error('Erreur lors de l\'extraction du texte du PDF:', error);
+      return {
+        success: false,
+        error: error.message
+      };
+    }
+  });
+  
   createWindow();
 
   app.on("activate", function () {
@@ -120,6 +148,7 @@ app.on("window-all-closed", () => {
     app.quit();
   }
 });
+
 
 // In this file you can include the rest of your app"s specific main process
 // code. You can also put them in separate files and require them here.

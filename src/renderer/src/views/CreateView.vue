@@ -6,6 +6,7 @@ const router = useRouter();
 const isLoading = ref(false);
 const htmlContent = ref('');
 const selectedFileName = ref<string | null>(null);
+const selectedFile = ref<File | null>(null); // Store the actual File object
 
 const startCreation = () => {
     isLoading.value = true;
@@ -27,6 +28,7 @@ const handleFileUpload = (event: Event) => {
     const file = (event.target as HTMLInputElement).files?.[0];
     if (file) {
         selectedFileName.value = file.name;
+        selectedFile.value = file; // Store the File object
         console.log('Fichier sélectionné :', file.name);
         // Ajoutez ici le traitement du fichier si nécessaire
     }
@@ -34,12 +36,26 @@ const handleFileUpload = (event: Event) => {
 
 const resetFileSelection = () => {
     selectedFileName.value = null;
+    selectedFile.value = null; // Reset file object
 };
 
 const validateAndContinue = () => {
-    // Here you can add any validation logic if needed
-    // Navigate to the document editor view
-    router.push('/document-editor');
+    // Store the file in localStorage (will be retrieved in DocumentEditorView)
+    if (selectedFile.value) {
+        // We can't directly store File objects in localStorage, so we'll use a flag
+        localStorage.setItem('hasSelectedFile', 'true');
+        
+        // Store the file in a global variable that can be accessed by DocumentEditorView
+        window.selectedFileTransfer = selectedFile.value;
+    }
+    
+    // Pass the HTML content to the document editor view
+    router.push({
+        path: '/document-editor',
+        query: { 
+            htmlContent: encodeURIComponent(htmlContent.value)
+        }
+    });
 };
 </script>
 

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prosit 6.1 SI - Marine Boulanger</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .page {
+            padding: 2cm;
+            page-break-after: always;
+        }
+
+        .cover {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .cover img {
+            max-width: 50%;
+            margin: 20px auto;
+        }
+
+        .author {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-weight: bold;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .definition {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-left: 3px solid #3498db;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page de garde -->
+    <div class="page cover">
+        <div class="author">Marine Boulanger</div>
+        <h1>Prosit 6.1 SI - Architecture de système d'information</h1>
+        <img src="https://via.placeholder.com/400x300?text=Infrastructure+SI" alt="Illustration système d'information">
+    </div>
+
+    <!-- Sommaire -->
+    <div class="page">
+        <h2>Table des matières</h2>
+        <ul>
+            <li><a href="#mots-cles">Mots clés</a></li>
+            <li><a href="#mots-a-definir">Mots à définir</a></li>
+            <li><a href="#contexte">Contexte</a></li>
+            <li><a href="#problematique">Problématique</a></li>
+            <li><a href="#contraintes">Contraintes</a></li>
+            <li><a href="#livrables">Livrables</a></li>
+            <li><a href="#generalisation">Généralisation</a></li>
+            <li><a href="#pistes-solutions">Pistes de solutions</a></li>
+            <li><a href="#plan-action">Plan d'action</a></li>
+            <li><a href="#etude-ressources">Étude des ressources</a></li>
+            <li><a href="#resolution">Résolution du problème</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#bilan">Bilan personnel</a></li>
+        </ul>
+    </div>
+
+    <!-- Mots clés -->
+    <div class="page" id="mots-cles">
+        <h2>Mots clés</h2>
+        <ul>
+            <li>Startup COP</li>
+            <li>Architecture SI</li>
+            <li>Système d'information</li>
+            <li>3 ou 4 Serveurs de petites tailles</li>
+            <li>Matériel informatique</li>
+            <li>Autonomie numérique</li>
+            <li>Connexion internet</li>
+            <li>Base de données</li>
+            <li>Parcoursup</li>
+            <li>Données ouvertes</li>
+            <li>Site web</li>
+            <li>Infrastructure</li>
+            <li>Étude statistique</li>
+            <li>Jeu de données (norme SGBD)</li>
+        </ul>
+    </div>
+
+    <!-- Mots à définir -->
+    <div class="page" id="mots-a-definir">
+        <h2>Mots à définir</h2>
+        <div class="definition">
+            <strong>ERP</strong>: Enterprise Resource Planning - Système intégré de gestion des processus métiers d'une
+            entreprise.
+        </div>
+        <div class="definition">
+            <strong>WBS/OBS</strong>: Work Breakdown Structure / Organizational Breakdown Structure - Méthodes de
+            décomposition des travaux et de l'organisation.
+        </div>
+        <div class="definition">
+            <strong>Système de commutation</strong>: Dispositif permettant d'acheminer des données dans un réseau
+            informatique.
+        </div>
+        <div class="definition">
+            <strong>Hébergement local</strong>: Solution d'hébergement de serveurs physiquement situés dans les locaux
+            de l'entreprise.
+        </div>
+    </div>
+
+    <!-- Contexte -->
+    <div class="page" id="contexte">
+        <h2>Contexte</h2>
+        <p>Une entreprise veut s'intégrer au réseau d'une pépinière de manière sécurisé (sans que l'un n'ait accès aux
+            réseaux de l'autre).</p>
+    </div>
+
+    <!-- Problématique -->
+    <div class="page" id="problematique">
+        <h2>Problématique</h2>
+        <p>Comment concevoir une infrastructure informatique sécurisé tout en permettant l'exploitation de données
+            ouvertes ?</p>
+    </div>
+
+    <!-- Contraintes -->
+    <div class="page" id="contraintes">
+        <h2>Contraintes</h2>
+        <ul>
+            <li>Budget très restreint (matériel limité)</li>
+            <li>Ne pas prendre n'importe quelle donnée (sécurisée)</li>
+            <li>Aucune utilisation possible des serveurs de l'entreprise hôte</li>
+        </ul>
+    </div>
+
+    <!-- Livrables -->
+    <div class="page" id="livrables">
+        <h2>Livrables</h2>
+        <ol>
+            <li>Maquette de SI (cisco PT)</li>
+            <li>Base de données contenant les données Parcoursup</li>
+        </ol>
+    </div>
+
+    <!-- Généralisation -->
+    <div class="page" id="generalisation">
+        <h2>Généralisation</h2>
+        <p>Les systèmes d'information</p>
+    </div>
+
+    <!-- Pistes de solutions -->
+    <div class="page" id="pistes-solutions">
+        <h2>Pistes de solutions</h2>
+        <ul>
+            <li>Inspiration de : l'infrastructure hôte (à modifier)</li>
+            <li>Données data jeux</li>
+            <li>Dimensionnement du réseau</li>
+            <li>Séparer le réseau de COP de celui de l'entreprise hôte.</li>
+        </ul>
+    </div>
+
+    <!-- Plan d'action -->
+    <div class="page" id="plan-action">
+        <h2>Plan d'action</h2>
+        <ol>
+            <li>Lister les composants</li>
+            <li>Dimensionnement du réseau</li>
+            <li>Modélisation de l'infrastructure</li>
+            <li>Données de jeux</li>
+        </ol>
+    </div>
+
+    <!-- Étude des ressources -->
+    <div class="page" id="etude-ressources">
+        <h2>Étude des ressources</h2>
+        <p>Le document original mentionne plusieurs éléments clés pour la réalisation du projet :</p>
+        <ul>
+            <li>Utilisation de Cisco Packet Tracer pour la modélisation réseau</li>
+            <li>Nécessité de données Parcoursup pour la base de données</li>
+            <li>Besoin de matériel serveur à petite échelle</li>
+            <li>Importance des normes SGBD pour les jeux de données</li>
+        </ul>
+    </div>
+
+    <!-- Résolution du problème -->
+    <div class="page" id="resolution">
+        <h2>Résolution du problème</h2>
+        <!-- Contenu vide comme demandé -->
+    </div>
+
+    <!-- Conclusion -->
+    <div class="page" id="conclusion">
+        <h2>Conclusion</h2>
+        <!-- Contenu vide comme demandé -->
+    </div>
+
+    <!-- Bilan personnel -->
+    <div class="page" id="bilan">
+        <h2>Bilan personnel</h2>
+        <p>Ce projet d'architecture de système d'information représente un défi intéressant qui combine plusieurs
+            aspects techniques et organisationnels. La conception d'une infrastructure sécurisée avec un budget
+            restreint nécessite une approche créative et pragmatique. L'utilisation de Cisco Packet Tracer semble
+            pertinente pour modéliser la solution avant implémentation.</p>
+        <p>L'intégration des données Parcoursup dans une base de données locale tout en garantissant la sécurité des
+            réseaux est un aspect particulièrement stimulant du projet. La séparation des réseaux tout en permettant
+            l'échange de données ouvertes demande une réflexion approfondie sur l'architecture réseau.</p>
+        <p>Les contraintes budgétaires imposent de faire des choix judicieux en matière de matériel et d'optimiser
+            l'utilisation des ressources disponibles. Ce projet est une excellente opportunité pour appliquer les
+            concepts théoriques d'architecture SI à un cas concret avec des enjeux réels.</p>
+        <p>La méthodologie proposée dans le plan d'action semble logique et progressive, permettant d'aborder le
+            problème par étapes. La phase de dimensionnement sera particulièrement cruciale pour garantir la viabilité
+            de la solution proposée.</p>
+    </div>
+</body>
+
+</html>
